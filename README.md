@@ -5,66 +5,64 @@
 
 ---
 
-## 🚀 Запуск проекта
+## 🧰 Установка
 
-### Windows (быстрая установка)
+Ассистент требует Node.js (LTS) и SoX (для захвата микрофона).
 
-1. Установите Node.js (LTS) с https://nodejs.org/
+### Windows
 
-2. Установите SoX (для записи с микрофона), один из способов:
+1. Node.js: установите LTS с https://nodejs.org/
 
-- Через Chocolatey (рекомендуется):
+2. SoX (любой способ):
+
+- Chocolatey (админ PowerShell):
 
 ```powershell
-choco install sox
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+choco install sox -y
+refreshenv
 sox --version
 ```
 
-- Через Scoop:
+- Scoop:
 
 ```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+iwr -useb get.scoop.sh | iex
 scoop install sox
 sox --version
 ```
 
-- Вручную: скачайте бинарники SoX для Windows, распакуйте и добавьте папку с sox.exe в PATH. Затем проверьте:
+- Вручную: скачайте бинарники SoX для Windows, распакуйте (например, C:\\Tools\\sox) и добавьте путь в PATH. Проверьте `sox --version` в новом PowerShell.
 
-```powershell
-sox --version
-```
+3. Доступ к микрофону: Windows Settings → Privacy → Microphone → разрешите доступ приложениям.
 
-3. Дайте приложению доступ к микрофону (Windows Settings → Privacy → Microphone → Разрешить приложениям доступ к микрофону).
+### macOS
 
-4. Установите зависимости и запустите:
+1. Node.js: через Homebrew или с https://nodejs.org/
 
-```powershell
-npm install
-npm start
-```
-
-### 1. Установить зависимости
-
-```bash
-npm install
-```
-
-### 1.1. Системные зависимости (захват микрофона)
-
-- Требуется sox для записи звука из микрофона.
-- macOS:
+2. SoX:
 
 ```bash
 brew install sox
+sox --version
 ```
 
-- Linux (Debian/Ubuntu):
+3. Разрешения: System Settings → Privacy & Security → Microphone — разрешите доступ после первого запуска.
+
+### Linux (Debian/Ubuntu)
+
+1. Node.js: из дистрибутива или nvm.
+
+2. SoX:
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y sox
+sox --version
 ```
-
-- macOS: после первого запуска дайте приложению доступ к микрофону в System Settings → Privacy & Security → Microphone.
 
 ### 2. Скачать русскую ASR-модель (small, 2024-09-18)
 
