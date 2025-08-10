@@ -1,0 +1,49 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Env files
+.env
+.env.*.local
+
+# Build / cache artifacts
+dist/
+build/
+.out/
+coverage/
+.cache/
+.tmp/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+
+# VS Code workspace settings (ignore all)
+.vscode/
+
+# TypeScript incremental
+*.tsbuildinfo
+
+# Models: keep the folder, ignore its contents
+models/*
+!models/.gitkeep
+
+# (legacy specific ignores; safe if patterns change in the future)
+models/**/*.tar*
+models/**/*.zip
+models/**/*.7z
+models/**/test_wavs/
+
+# Temporary folders
+.tmp/
+tmp/
+.temp/
